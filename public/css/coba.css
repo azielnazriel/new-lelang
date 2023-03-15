@@ -1,0 +1,99 @@
+/* <section id="services" class="bg-dark text-white"><div class="container"><h2 class="text-center">Layanan Kami</h2><div class="row"><div class="col-lg-4 my-5"><h4>Lelang Online</h4><p>Lorem ipsum dolor sit amet,
+consectetur adipiscing elit. Fusce varius,
+urna et rutrum convallis,
+sem ipsum malesuada neque,
+id congue nibh sem id justo.</p></div><div class="col-lg-4 my-5"><h4>Lelang Langsung</h4><p>Lorem ipsum dolor sit amet,
+consectetur adipiscing elit. Fusce varius,
+urna et rutrum convallis,
+sem ipsum malesuada neque,
+id congue nibh sem id justo.</p></div><div class="col-lg-4 my-5"><h4>Lelang Komunitas</h4><p>Lorem ipsum dolor sit amet,
+consectetur adipiscing elit. Fusce varius,
+urna et rutrum convallis,
+sem ipsum malesuada neque,
+id congue nibh sem id justo.</p></div></div></div>body {
+    font-family: Arial, sans-serif;
+    background-color: orange;
+}
+
+header {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: lightgray;
+    display: inline-block;
+    width: 20%;
+    vertical-align: top;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+}
+
+main {
+    display: inline-block;
+    width: 60%;
+    vertical-align: top;
+    padding: 20px;
+}
+
+footer {
+    background-color: lightgray;
+    clear: both;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#sidebar-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#menu-toggle {
+    display: block;
+    background: #000;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+#menu-toggle:hover {
+    background: #fff;
+    color: #000;
+} */

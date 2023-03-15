@@ -1,0 +1,154 @@
+.message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 20px;
+}
+
+.message a {
+    color: #FBA70B;
+    text-decoration: none;
+}
+
+.form .register-form {
+    display: none;
+}
+
+
+
+/* menu slidebar
+
+.biru {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-right: 5px;
+    background: #F5C35A;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 15px 20px 15px 20px;
+    margin-left: 25px;
+    width: 150px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.biru:hover {
+    background: #fc5185;
+    text-decoration: none;
+}
+
+.bee {
+    margin-top: 10px;
+    position: center;
+    border-radius: 100px;
+    width: 100px;
+    height: 90px;
+    position: center;
+}
+
+.baa {
+    margin-top: 50px;
+    border-radius: none;
+    width: 200px;
+    height: 190px;
+    margin-right: 100px;
+}
+
+.tulis {
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(120, 118, 115);
+}
+
+/* menu sek tengah */
+/* .menu {
+    padding: 0 5px 5px 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, lfr));
+    grid-gap: 20px 40px;
+}
+
+.heading {
+    background-color: #F5C35A;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    padding: 40px 0;
+    grid-column: 1/-1;
+    text-align: center;
+}
+
+.heading>h1 {
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 10px;
+    margin-bottom: 10px;
+}
+
+.heading>h3 {
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 5px;
+}
+
+.food-items {
+    display: grid;
+    position: relative;
+    width: 250px;
+    height: 300px;
+    grid-template-rows: auto lfr;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(114, 110, 110);
+}
+
+.food-items img {
+    position: relative;
+    width: 250px;
+    height: 180px;
+    border-radius: 15px 15px 0 0;
+
+}
+
+h1 {
+    grid-column: 1/-1;
+    text-align: center;
+}
+
+.details {
+    padding: 20px 10px;
+    display: grid;
+    grid-template-rows: auto lfr 50px;
+    grid-row-gap: 15px;
+}
+
+.details-sub {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.details-sub>h5 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.price {
+    text-align: right;
+}
+
+.details>p {
+    color: #5af5b2;
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: 400;
+    align-self: stretch;
+}
+
+.details-sub>button {
+    background-color: aqua;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 100px;
+} */
