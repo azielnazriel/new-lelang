@@ -78,11 +78,13 @@ return [
         'petugas' => [
             'driver' => 'eloquent',
             'table' => App\Models\Petugas::class,
+            'model' => \App\Models\Petugas::class,
         ],
 
         'masyarakat' => [
             'driver' => 'eloquent',
             'table' => App\Models\Masyarakat::class,
+            'model' => \App\Models\Masyarakat::class,
         ],
     ],
 

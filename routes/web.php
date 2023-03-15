@@ -1,13 +1,18 @@
 <?php
 
-use App\Http\Controllers\BarangController;
-use App\Http\Controllers\LelangController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MasyarakatController;
-use App\Http\Controllers\PetugasController;
-use App\Models\Barang;
-use App\Models\Lelang;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\{
+    BarangController,
+    DashboardController,
+    HistoryLelangController,
+    HomeController,
+    LelangController,
+    LoginController,
+    MasyarakatController,
+    PenawaranController,
+    PetugasController,
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -20,60 +25,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index', [
-        'lelang' => Lelang::where('status_15480', 'dibuka')->get()
-    ]);
+Route::middleware('not-user-and-petugas')->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+    Route::get('/register', [LoginController::class, 'register'])->name('register');
+    Route::post('/register', [LoginController::class, 'create'])->name('register.create');
 });
 
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'postLogin']);
+// Route::middleware('is-user')->group(function () {
+Route::get('/', HomeController::class)->name('home');
+Route::post('/penawaran/{idLelang}', [PenawaranController::class, 'penawaran'])->name('penawaran');
+// });
 
-Route::get('/register', function () {
-    return view('login.register');
+Route::middleware('is-admin')->group(function () {
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
+    Route::resource('/masyarakat', MasyarakatController::class)->except('show');
+    Route::resource('/petugas', PetugasController::class);
+    Route::resource('/barang', BarangController::class)->except('show');
+    Route::resource('/lelang', LelangController::class)->only('index', 'create', 'store', 'show');
+    Route::get('/lelang/{idLelang}/history/create', [HistoryLelangController::class, 'create'])->name('history.create');
+    Route::post('/lelang/{idLelang}/history', [HistoryLelangController::class, 'store'])->name('history.store');
+    Route::post('/lelang/{idLelang}/history/{idHistory}', [HistoryLelangController::class, 'winner'])->name('history.winner');
 });
 
-
-Route::get('/pet', function () {
-    return view('petugas.index', [
-        'header' => 'Dashboard'
-    ]);
-});
-Route::get('/dashboard', function () {
-    return view('dashboard.index', [
-        'header' => 'Dashboard'
-    ]);
-});
-
-Route::get('/dash', function () {
-    return view('menu.dash', [
-        'header' => 'Data Petugas'
-    ]);
-});
-
-Route::get('/slide', function () {
-    return view('slide.barang', [
-        'header' => 'Data Barang'
-    ]);
-});
-
-Route::get('/side', function () {
-    return view('side.lelang', [
-        'header' => 'Data Lelang'
-    ]);
-});
-
-Route::get('/admin', function () {
-    return view('admin.index');
-});
-
-Route::resource('/masyarakat', MasyarakatController::class);
-
-Route::resource('/petu', PetugasController::class);
-
-Route::resource('/barang', BarangController::class);
-
-Route::resource('/lelang', LelangController::class);
-
-
-// Route::get('/petu/.{'$id_15480'}./edt', PetugasController::class);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

@@ -18,11 +18,11 @@ class LevelSeeder extends Seeder
     public function run()
     {
         Level::create([
-            'nama_petugas_15480' => 'administrator'
+            'nama_15480' => 'administrator'
         ]);
 
         Level::create([
-            'nama_petugas_15480' => 'petugas'
+            'nama_15480' => 'petugas'
         ]);
 
         //     Petugas::create([

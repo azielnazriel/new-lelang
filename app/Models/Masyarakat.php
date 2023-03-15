@@ -12,4 +12,9 @@ class Masyarakat extends Authenticatable
 
     protected $guarded = ['id_15480'];
     protected $table = 'masyarakats_15480';
+
+    public function getAuthPassword()
+    {
+        return $this->password_15480;
+    }
 }

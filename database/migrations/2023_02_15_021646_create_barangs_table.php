@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id('id_15480');
             $table->string('nama_barang_15480');
             $table->date('tgl_15480');
-            $table->string('nama_lengkap_15480');
             $table->integer('harga_awal_15480');
             $table->string('deskripsi_15480');
             $table->string('gambar_15480');

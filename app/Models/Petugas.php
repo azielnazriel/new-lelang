@@ -18,9 +18,9 @@ class Petugas extends Authenticatable
     protected $table = 'petugas_15480';
     protected $primaryKey = "id_15480";
 
-    public function getAutPassword()
+    public function getAuthPassword()
     {
-        return $this->passsword_15480;
+        return $this->password_15480;
     }
     public function level()
     {

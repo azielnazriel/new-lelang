@@ -16,4 +16,28 @@ class Lelang extends Model
     {
         return $this->hasOne(Barang::class, 'id_15480', 'id_barang_15480');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(Masyarakat::class);
+    }
+
+    public function HistoryLelang()
+    {
+        return $this->hasMany(Historylelang::class);
+    }
+
+    public function getMinBid()
+    {
+        $history = Historylelang::where('id_lelang_15480', $this->id_15480)->orderBy('penawaran_harga_15480', 'desc')->first();
+
+        if ($history == null) {
+            $lelang = Lelang::where('id_15480', $this->id_15480)->firstOrFail();
+            $minBid = $lelang->barang->harga_awal_15480;
+        } else {
+            $minBid = $history->penawaran_harga_15480;
+        }
+
+        return $minBid;
+    }
 }

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Petugas;
+use App\Models\Masyarakat;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PetugasSeeder extends Seeder
+class MasyarakatSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,11 +15,11 @@ class PetugasSeeder extends Seeder
      */
     public function run()
     {
-        Petugas::create([
-            'nama_petugas_15480' => "Admin",
-            'username_15480' => "admin1",
+        Masyarakat::create([
+            'nama_lengkap_15480' => 'Nazril Suandana',
+            'username_15480' => 'nazril',
             'password_15480' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'id_level_15480' => 1,
+            'telp_15480' => '0895363116378',
         ]);
     }
 }

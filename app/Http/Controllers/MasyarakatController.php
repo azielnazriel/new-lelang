@@ -8,25 +8,15 @@ use Illuminate\Support\Facades\Hash;
 
 class MasyarakatController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('masyarakat.index', [
             'header' => 'Data Masyarakat',
-            'masyarakat' => Masyarakat::all()
+            'masyarakat' => Masyarakat::latest()->get()
 
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('masyarakat.create', [
@@ -34,45 +24,20 @@ class MasyarakatController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $masyarakat = $request->validate([
-            'nama_lengkap_15480' => 'required',
-            'username_15480' => 'required|unique:masyarakats_15480',
+            'nama_lengkap_15480' => 'required|max:255',
+            'username_15480' => 'required|unique:masyarakats_15480|max:255',
             'password_15480' => 'required',
             'telp_15480' => 'required|numeric',
 
         ]);
         $masyarakat['password_15480'] = Hash::make($request->password_15480);
         Masyarakat::create($masyarakat);
-        return redirect('/masyarakat');
+        return redirect()->route('masyarakat.index');
     }
 
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         return view('masyarakat.edit', [
@@ -81,36 +46,24 @@ class MasyarakatController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $masyarakat = $request->validate([
-            'nama_lengkap_15480' => 'required',
-            'username_15480' => 'required',
+            'nama_lengkap_15480' => 'required|max:255',
+            'username_15480' => 'required|max:25',
             'telp_15480' => 'required|numeric',
         ]);
 
         $masyarakat['password_15480'] = $request->old_password;
         Masyarakat::where('id_15480', $id)->update($masyarakat);
-        return redirect('/masyarakat');
+
+        return redirect()->route('masyarakat.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         Masyarakat::where('id_15480', $id)->delete();
 
-        return redirect('masyarakat');
+        return redirect()->route('masyarakat.index');
     }
 }

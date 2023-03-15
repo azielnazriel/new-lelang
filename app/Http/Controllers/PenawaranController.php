@@ -9,27 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class PenawaranController extends Controller
 {
-    public function penawaran(Request $request, $idLelang, $idBarang)
+    public function penawaran(Request $request, $idLelang)
     {
-        $history = Historylelang::where('id_lelang_15480', $idLelang)->orderBy('penawaran_15480', 'desc')->first();
-
-        if ($history == null) {
-            $lelang = Lelang::where('id_15480', $idLelang)->firstOrFail();
-            $gt = $lelang->barang->harga_awal_15480;
-        } else {
-            $gt = $history->penawaran_15480;
-        }
+        $lelang = Lelang::where('id_15480', $idLelang)->firstOrFail();
 
         $validatedData = $request->validate([
-            'penawaran_15480' => 'required|numeric|gt:' . $gt,
+            'penawaran_harga_15480' => 'required|numeric|gt:' . $lelang->getMinBid(),
         ]);
 
         $validatedData['id_lelang_15480'] = $idLelang;
-        $validatedData['id_barang_15480'] = $idBarang;
-        $validatedData['id_masyarakat_15480'] = Auth::guard('masyarakat')->user()->id_15480;
-
+        $validatedData['id_barang_15480'] = $lelang->id_barang_15480;
+        $validatedData['id_masyarakat_15480'] = 1;
+        // $validatedData['id_masyarakat_15480'] = Auth::guard('masyarakat')->user()->id_15480;
 
         HistoryLelang::create($validatedData);
-        return redirect('');
+        return redirect()->route('home');
     }
 }

@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Historylelang extends Model
+class Pemenang extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id_15480'];
-    protected $table = 'history_lelangs_15480';
+    protected $table = 'pemenang_15480';
 
-    public function user()
+    public function historyLelang()
     {
-        return $this->hasOne(Masyarakat::class, 'id_15480', 'id_masyarakat_15480');
+        return $this->hasOne(HistoryLelang::class, 'id_history_lelang_15480', 'id_15458');
     }
 }
