@@ -12,6 +12,7 @@ use App\Http\Controllers\{
     MasyarakatController,
     PenawaranController,
     PetugasController,
+    ExportController
 };
 
 /*
@@ -47,6 +48,8 @@ Route::middleware('is-admin')->group(function () {
     Route::get('/lelang/{idLelang}/history/create', [HistoryLelangController::class, 'create'])->name('history.create');
     Route::post('/lelang/{idLelang}/history', [HistoryLelangController::class, 'store'])->name('history.store');
     Route::post('/lelang/{idLelang}/history/{idHistory}', [HistoryLelangController::class, 'winner'])->name('history.winner');
+
+    Route::post('lelang/export', [ExportController::class, 'lelang'])->name('lelang.export');
 });
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

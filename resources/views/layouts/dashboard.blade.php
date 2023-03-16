@@ -18,6 +18,7 @@
 <body id="page-top">
     <div id="wrapper">
 
+        @stack('lelang-modal')
         @include('components.dashboard.sidebar')
 
         <div id="content-wrapper" class="d-flex flex-column">
