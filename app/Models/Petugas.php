@@ -24,7 +24,7 @@ class Petugas extends Authenticatable
     }
     public function level()
     {
-        return $this->hasOne(Level::class, 'id_15480', 'id_level_15480');
+        return $this->hasOne(Level::class, 'id_level_15480', 'id_level_15480');
     }
     public function lelang()
     {

@@ -14,6 +14,12 @@
                                 data-target="#historyMenangModal">History
                                 Menang</a>
                         </li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="post" class="d-inline-block">
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-transparent mt-1">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>

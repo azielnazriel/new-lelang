@@ -18,7 +18,9 @@ class IsAdmin
     public function handle(Request $request, Closure $next)
     {
         if (Auth::guard('petugas')->check()) {
-            return $next($request);
+            if (Auth::guard('petugas')->user()->level->nama_15480 == 'administrator') {
+                return $next($request);
+            }
         }
 
         return redirect()->route('login');

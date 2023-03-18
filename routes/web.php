@@ -33,23 +33,29 @@ Route::middleware('not-user-and-petugas')->group(function () {
     Route::post('/register', [LoginController::class, 'create'])->name('register.create');
 });
 
-// Route::middleware('is-user')->group(function () {
+// Route::middleware('auth:masyarakat')->group(function () {
 Route::get('/', HomeController::class)->name('home');
 Route::post('/penawaran/{idLelang}', [PenawaranController::class, 'penawaran'])->name('penawaran');
 // });
 
-Route::middleware('is-admin')->group(function () {
+Route::middleware('auth:petugas')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-
-    Route::resource('/masyarakat', MasyarakatController::class)->except('show');
-    Route::resource('/petugas', PetugasController::class);
     Route::resource('/barang', BarangController::class)->except('show');
-    Route::resource('/lelang', LelangController::class)->only('index', 'create', 'store', 'show');
-    Route::get('/lelang/{idLelang}/history/create', [HistoryLelangController::class, 'create'])->name('history.create');
-    Route::post('/lelang/{idLelang}/history', [HistoryLelangController::class, 'store'])->name('history.store');
-    Route::post('/lelang/{idLelang}/history/{idHistory}', [HistoryLelangController::class, 'winner'])->name('history.winner');
-
     Route::post('lelang/export', [ExportController::class, 'lelang'])->name('lelang.export');
+
+    Route::middleware('is-admin')->group(function () {
+        Route::resource('/masyarakat', MasyarakatController::class)->except('show');
+        Route::resource('/petugas', PetugasController::class)->except('show');
+    });
+
+    Route::middleware('is-petugas')->group(function () {
+        Route::resource('/lelang', LelangController::class)->only('index', 'create', 'store', 'show');
+        Route::get('/lelang/{idLelang}/history/create', [HistoryLelangController::class, 'create'])->name('history.create');
+        Route::post('/lelang/{idLelang}/history', [HistoryLelangController::class, 'store'])->name('history.store');
+        Route::post('/lelang/{idLelang}/history/{idHistory}', [HistoryLelangController::class, 'winner'])->name('history.winner');
+    });
 });
 
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::middleware('auth:petugas,masyarakat')->group(function () {
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
