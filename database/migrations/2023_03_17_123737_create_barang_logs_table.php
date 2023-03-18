@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('barang_log', function (Blueprint $table) {
+        Schema::create('barang_log_15480', function (Blueprint $table) {
             $table->id();
             $table->string('old_nama_barang_15480')->nullable();
             $table->string('new_nama_barang_15480')->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('new_harga_awal_15480')->nullable();
             $table->string('old_deskripsi_15480')->nullable();
             $table->string('new_deskripsi_15480')->nullable();
-            $table->enum('action', ['insert', 'update', 'delete']);
+            $table->enum('action_15480', ['insert', 'update', 'delete']);
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('barang_log');
+        Schema::dropIfExists('barang_log_15480');
     }
 };
