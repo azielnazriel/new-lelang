@@ -16,8 +16,45 @@
 </head>
 
 <body id="page-top">
-    <div id="wrapper">
+    <div class="modal fade" id="generateLaporanModal" tabindex="-1" aria-labelledby="generateLaporanModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-dark" id="generateLaporanModalLabel">Generate Laporan
+                    </h1>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
+                </div>
+                <form action="{{ route('lelang.export') }}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-4">
+                            <label class="form-label" for="date_start">Tanggal Mulai</label>
+                            <input type="date" class="form-control" name="date_start" id="date_start" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="date_finish">Tanggal Berakhir</label>
+                            <input type="date" class="form-control" name="date_finish" id="date_finish" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="status">Status</label>
+                            <select name="status" class="form-control" id="status" required>
+                                <option value="semua">Semua Status</option>
+                                <option value="dibuka">Dibuka</option>
+                                <option value="ditutup">Ditutup</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn text-white"
+                            style="background-color: #F58452; text-decoration:none; margin-left:15px;">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <div id="wrapper">
         @include('components.dashboard.sidebar')
 
         <div id="content-wrapper" class="d-flex flex-column">

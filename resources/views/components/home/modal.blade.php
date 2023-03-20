@@ -40,7 +40,7 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="tawarModalLabel">History {{ $item->barang->nama_barang_15480 }}
                     </h1>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body row justify-content-center w-100">
                     <div class="table-responsive">
@@ -74,7 +74,7 @@
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="historyMenangModalLabel">History Menang
                 </h1>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div class="modal-body row justify-content-center w-100">
                 <div class="table-responsive">

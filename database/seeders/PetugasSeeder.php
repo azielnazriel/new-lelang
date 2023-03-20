@@ -21,5 +21,12 @@ class PetugasSeeder extends Seeder
             'password_15480' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'id_level_15480' => 1,
         ]);
+
+        Petugas::create([
+            'nama_petugas_15480' => "Petugas",
+            'username_15480' => "petugas1",
+            'password_15480' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'id_level_15480' => 2,
+        ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BarangController extends Controller
 {
@@ -35,8 +36,16 @@ class BarangController extends Controller
 
         $validatedData['gambar_15480'] = $request->file('gambar_15480')->store('barang-image');
 
-        Barang::create($validatedData);
-        return redirect()->to('barang')->with('success', 'Berhasil menambahkan data');
+        $storedProcedureParam = "'" . $validatedData['nama_barang_15480'] . "', " .
+            "'" . $validatedData['tgl_15480'] . "', " .
+            $validatedData['harga_awal_15480'] . ", " .
+            "'" . $validatedData['deskripsi_15480'] . "', " .
+            "'" . $validatedData['gambar_15480'] . "'";
+
+        DB::select("CALL insert_barang(" . $storedProcedureParam . ")");
+
+        // Barang::create($validatedData);
+        return redirect()->route('barang.index');
     }
 
     public function edit($id)
@@ -64,13 +73,13 @@ class BarangController extends Controller
         }
 
         Barang::where('id_15480', $id)->update($validatedData);
-        return redirect('/barang');
+        return redirect()->route('barang.index');
     }
 
     public function destroy($id)
     {
         Barang::where('id_15480', $id)->delete();
 
-        return redirect('barang');
+        return redirect()->route('barang.index');
     }
 }

@@ -25,27 +25,43 @@
         Menu
     </div>
 
-    <li class="nav-item @if (Request::is('masyarakat*')) active @endif">
-        <a class="nav-link" href="{{ route('masyarakat.index') }}">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Data Masyarakat</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('petugas.index') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Data Petugas</span></a>
-    </li>
+    @if (auth()->guard('petugas')->user()->level->nama_15480 == 'administrator')
+        <li class="nav-item @if (Request::is('masyarakat*')) active @endif">
+            <a class="nav-link" href="{{ route('masyarakat.index') }}">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Data Masyarakat</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('petugas.index') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Data Petugas</span></a>
+        </li>
+    @endif
+
     <li class="nav-item">
         <a class="nav-link" href="{{ route('barang.index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Data Barang</span></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('lelang.index') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Data Lelang</span></a>
-    </li>
+
+    @if (auth()->guard('petugas')->user()->level->nama_15480 == 'petugas')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('lelang.index') }}">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Lelang</span></a>
+        </li>
+    @endif
+
+    @if (auth()->guard('petugas')->user()->level->nama_15480 == 'administrator')
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#generateLaporanModal">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Generate Laporan</span>
+            </a>
+        </li>
+    @endif
+
     <li class="nav-item">
         <form action="{{ route('logout') }}" method="POST" class="nav-link">
             @csrf

@@ -16,7 +16,7 @@
                 <tr>
                     <th>{{ $item->tgl_lelang_15480 }}</th>
 
-                    @if ($item->user)
+                    @if ($item->harga_akhir_15480)
                         <th>{{ $item->harga_akhir_15480 }}</th>
                     @else
                         <th class="text-danger">Harga Akhir Belum Ditentukan</th>
@@ -38,5 +38,6 @@
 
     </table>
     <a href="{{ route('lelang.create') }}" class="btn text-white"
-        style="background-color: #F58452; text-decoration:none; margin-left:15px;"> Create</a>
+        style="background-color: #F58452; text-decoration:none; margin-left:15px;">Create</a>
+    <a class="btn btn-primary ms-3" data-toggle="modal" data-target="#generateLaporanModal">Generate Laporan</a>
 @endsection

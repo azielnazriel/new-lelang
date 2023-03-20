@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class IsUser
+class IsPetugas
 {
     /**
      * Handle an incoming request.
@@ -17,9 +17,10 @@ class IsUser
      */
     public function handle(Request $request, Closure $next)
     {
-        dd(Auth::guard('masyarakat')->user());
-        if (Auth::guard('masyarakat')->check()) {
-            return $next($request);
+        if (Auth::guard('petugas')->check()) {
+            if (Auth::guard('petugas')->user()->level->nama_15480 == 'petugas') {
+                return $next($request);
+            }
         }
 
         return redirect()->route('login');
