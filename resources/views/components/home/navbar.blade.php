@@ -4,7 +4,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <a href="index.html" class="logo">
-                        Lelang Online
+                        Lelang Opo Anane 
                     </a>
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
