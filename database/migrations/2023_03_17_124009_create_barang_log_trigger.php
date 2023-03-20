@@ -17,7 +17,7 @@ return new class extends Migration
         DB::unprepared("
             CREATE TRIGGER `barang_log_trigger` AFTER INSERT ON `barangs_15480` FOR EACH ROW
             BEGIN
-                INSERT INTO barang_log VALUES( 
+                INSERT INTO barang_log_15480 VALUES( 
                     NULL, 
                     NULL, 
                     NEW.nama_barang_15480, 
