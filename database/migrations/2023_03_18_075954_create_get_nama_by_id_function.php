@@ -14,15 +14,15 @@ return new class extends Migration
      */
     public function up()
     {
-        // DB::unprepared("
-        // CREATE FUNCTION `getNamaBarangById`(
-        //     `id` INT
-        // ) RETURNS VARCHAR(255)
-        // BEGIN
-        //     DECLARE nama VARCHAR(255); 
-        //     SELECT nama_barang_15480 INTO nama FROM `barangs_15480` WHERE id_15480 = id; RETURN nama; 
-        // END
-        // ");
+        DB::unprepared("
+        CREATE FUNCTION `getNamaBarangById`(
+            `id` INT
+        ) RETURNS VARCHAR(255) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER
+        BEGIN
+            DECLARE nama VARCHAR(255); 
+            SELECT nama_barang_15480 INTO nama FROM `barangs_15480` WHERE id_15480 = id; RETURN nama; 
+        END
+        ");
     }
 
     /**
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        // DB::unprepared('DROP FUNCTION IF EXISTS `getNamaBarangById`');
+        DB::unprepared('DROP FUNCTION IF EXISTS `getNamaBarangById`');
     }
 };
