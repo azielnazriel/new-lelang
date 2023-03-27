@@ -4,7 +4,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <a href="index.html" class="logo">
-                        Lelang Opo Anane 
+                        Lelangku 
                     </a>
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
@@ -17,7 +17,7 @@
                         <li>
                             <form action="{{ route('logout') }}" method="post" class="d-inline-block">
                                 @csrf
-                                <button type="submit" class="btn btn-sm btn-transparent mt-1">Logout</button>
+                                <button type="submit" class="btn btn-sm btn-transparent mt-1">LOGOUT</button>
                             </form>
                         </li>
                     </ul>

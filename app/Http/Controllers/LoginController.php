@@ -33,6 +33,7 @@ class LoginController extends Controller
 
         if ($request->role == 'user') {
             if (Auth::guard('masyarakat')->attempt($credentials)) {
+                // dd(Auth::guard('masyarakat')->user());
                 return redirect()->route('home');
             }
         } else {

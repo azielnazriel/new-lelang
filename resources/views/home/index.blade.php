@@ -37,7 +37,6 @@ https://templatemo.com/tm-540-lava-landing-page
             <em style="color:rgb(245, 209, 89);">LELANGKU</em>
         </h1>
     </div>
-
     <section class="section" id="about">
         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
             data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
@@ -63,14 +62,6 @@ https://templatemo.com/tm-540-lava-landing-page
 
     <div class="left-image-decor"> </div>
 
-
-    {{-- </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    --}}
-
     <div class="right-image-decor"></div>
 
 
@@ -89,16 +80,6 @@ https://templatemo.com/tm-540-lava-landing-page
                             Lelang online dilakukan di website ini dan peserta lelang bisa mengikutinya secara daring.
                             Jenis lelang ini lebih digemari, mengingat tidak memerlukan waktu dan tenaga yang besar
                             karena bisa dilakukan di mana saja
-                            {{-- <br><br>If you need this contact form to send email to your inbox, you may follow our <a
-                                rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact</a> page
-                            for more detail.</p> --}}
-                            {{-- <ul class="social">
-                            <li><a href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        </ul> --}}
                     </div>
                 </div>
             </div>

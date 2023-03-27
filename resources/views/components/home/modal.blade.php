@@ -5,8 +5,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="tawarModalLabel">Penawaran {{ $item->barang->nama_barang_15480 }}
-                    </h1>
+                    <h3 class="modal-title fs-5" id="tawarModalLabel">Penawaran {{ $item->barang->nama_barang_15480 }}
+                    </h3>
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('penawaran', $item->id_15480) }}" method="POST">
@@ -14,8 +14,8 @@
 
                         <div class="row justify-content-center px-1">
                             @csrf
-                            <img src="{{ asset('storage/' . $item->barang->gambar_15480) }}" alt="Image"
-                                class="img-fluid d-inline-block">
+                            {{-- <img src="{{ asset('storage/' . $item->barang->gambar_15480) }}" alt="Image"
+                                class="img-fluid d-inline-block"> --}}
                             <label for="penawaran_harga_15480"></label>
                             <input type="number" name="penawaran_harga_15480" id="penawaran_harga_15480"
                                 class="form-control d-inline-block" placeholder="Masukan Penawaran Harga"
@@ -38,8 +38,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="tawarModalLabel">History {{ $item->barang->nama_barang_15480 }}
-                    </h1>
+                    <h3 class="modal-title fs-5" id="tawarModalLabel">History {{ $item->barang->nama_barang_15480 }}
+                    </h3>
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body row justify-content-center w-100">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" data-dismiss="modal" class="btn btn-danger">Tutup</button>
+                    <button type="submit" data-dismiss="modal" class="btn main-button">Tutup</button>
                 </div>
             </div>
         </div>

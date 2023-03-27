@@ -33,10 +33,10 @@ Route::middleware('not-user-and-petugas')->group(function () {
     Route::post('/register', [LoginController::class, 'create'])->name('register.create');
 });
 
-// Route::middleware('auth:masyarakat')->group(function () {
-Route::get('/', HomeController::class)->name('home');
-Route::post('/penawaran/{idLelang}', [PenawaranController::class, 'penawaran'])->name('penawaran');
-// });
+Route::middleware('auth:masyarakat')->group(function () {
+    Route::get('/', HomeController::class)->name('home');
+    Route::post('/penawaran/{idLelang}', [PenawaranController::class, 'penawaran'])->name('penawaran');
+});
 
 Route::middleware('auth:petugas')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
