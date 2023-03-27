@@ -18,6 +18,7 @@ class HomeController extends Controller
 
         return view('home.index', [
             'lelang' => Lelang::where('status_15480', 'dibuka')
+                ->with('historyLelang')
                 ->latest()
                 ->get(),
             'myWinnerHistory' => $pemenang

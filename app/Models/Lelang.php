@@ -22,9 +22,9 @@ class Lelang extends Model
         return $this->belongsTo(Masyarakat::class);
     }
 
-    public function HistoryLelang()
+    public function historyLelang()
     {
-        return $this->hasMany(Historylelang::class);
+        return $this->hasMany(Historylelang::class, 'id_lelang_15480', 'id_15480');
     }
 
     public function getMinBid()
