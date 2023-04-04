@@ -57,10 +57,8 @@ class PetugasController extends Controller
         $petugas = $request->validate([
             'nama_petugas_15480' => 'required',
             'username_15480' => 'required',
-            'telp_15480' => 'required|numeric',
+            'id_level_15480' => 'required|numeric',
         ]);
-
-        $petugas['password_15480'] = $request->old_password;
         Petugas::where('id_15480', $id)->update($petugas);
         return redirect()->route('petugas.index');
     }
